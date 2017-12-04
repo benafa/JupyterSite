@@ -14,7 +14,7 @@ for f in "${arr[@]}"; do
    filename="${filename%.*}"
 
    # Convert the Notebook to HTML
-   jupyter-nbconvert --to html Notebooks/"$filename".ipynb
+   jupyter-nbconvert --to html Notebooks/"$filename".ipynb --template=markdown.tpl
    # Move to the Html directory
    mv Notebooks/"$filename".html  Html/"$filename".html
 
@@ -24,7 +24,7 @@ for f in "${arr[@]}"; do
    mv Notebooks/"$filename".slides.html  Slides/"$filename".html
 
    # Convert the Notebook to Markdown
-   jupyter-nbconvert --to markdown --template markdown.tpl Notebooks/"$filename".ipynb
+   jupyter-nbconvert --to markdown --template=markdown.tpl Notebooks/"$filename".ipynb
    # Move to the Markdown directory
    mv Notebooks/"$filename".md  Markdown/"$filename".md
 
