@@ -28,11 +28,6 @@ for f in "${arr[@]}"; do
    # Move to the Markdown directory
    mv Notebooks/"$filename".md  Markdown/"$filename".md
 
-   # Convert the Notebook to Latex
-   jupyter-nbconvert --to latex Notebooks/"$filename".ipynb
-   # Move to the Tex directory
-   mv Notebooks/"$filename".tex  Tex/"$filename".tex
-
    # Convert the Notebook to Pdf
    cp Notebooks/"$filename".ipynb src/"$filename".ipynb
    cd src
