@@ -19,7 +19,7 @@ for f in "${arr[@]}"; do
    mv Notebooks/"$filename".html  Html/"$filename".html
 
    # Convert the Notebook to slides
-   jupyter-nbconvert --to slides Notebooks/"$filename".ipynb --reveal-prefix=reveal.js
+   jupyter-nbconvert --to slides --template markdown.tpl Notebooks/"$filename".ipynb --reveal-prefix=reveal.js
    # Move to the Slides directory
    mv Notebooks/"$filename".slides.html  Slides/"$filename".html
 
