@@ -9,15 +9,6 @@
 {% block output_prompt %}
 {%- endblock output_prompt %}
 
-{% block input %}
-{% if cell.metadata.hide == False %}
-{% else %}
-```{% if nb.metadata.language_info %}{{ nb.metadata.language_info.name }}{% endif %}
-{{ cell.source}}
-```
-{% endif %}
-{% endblock input %}
-
 {% block error %}
 {{ super() }}
 {% endblock error %}
