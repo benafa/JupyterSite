@@ -1,0 +1,770 @@
+
+
+
+
+
+
+
+    (819, 1465)
+
+
+
+# Baseline Model
+
+
+
+
+
+    "\nimputer = Imputer(strategy='mean')\nfor col in X.columns:\n    imputed = imputer.fit_transform(X[col].values.reshape(-1,1))\n    X.loc[:,col] = imputed\n"
+
+
+
+
+
+
+
+    AGE                           0
+    PTEDUCAT                      0
+    PTAU_UPENNBIOMK9_04_19_17     0
+    ABETA_UPENNBIOMK9_04_19_17    0
+    TAU_UPENNBIOMK9_04_19_17      0
+    APOE4                         0
+    ADAS11                        0
+    dtype: int64
+
+
+
+
+
+
+
+    (array(['AD', 'CN', 'LMCI'], dtype=object), array([192, 229, 398]))
+
+
+
+
+### Pre-process data 
+
+
+
+### Multinomial Logistic
+
+
+    Cross validated parameter for multinomial logistic regression: [ 1.  1.  1.]
+    Multinomial logistic regression training accuracy:  0.702554744526
+    Multinomial logistic regression testing accuracy:  0.660516605166
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.909091</td>
+      <td>0.877660</td>
+      <td>0.634328</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.090909</td>
+      <td>0.122340</td>
+      <td>0.365672</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.411765</td>
+      <td>0.349398</td>
+      <td>0.306569</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.588235</td>
+      <td>0.650602</td>
+      <td>0.693431</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### LDA
+
+
+    LDA Training Score:  0.691605839416
+    LDA Testing Score:  0.656826568266
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.890909</td>
+      <td>0.882979</td>
+      <td>0.649254</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.109091</td>
+      <td>0.117021</td>
+      <td>0.350746</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.372549</td>
+      <td>0.349398</td>
+      <td>0.328467</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.627451</td>
+      <td>0.650602</td>
+      <td>0.671533</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### QDA
+
+
+    QDA Training Score:  0.662408759124
+    QDA Testing Score:  0.638376383764
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.886364</td>
+      <td>0.819149</td>
+      <td>0.708955</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.113636</td>
+      <td>0.180851</td>
+      <td>0.291045</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.470588</td>
+      <td>0.204819</td>
+      <td>0.416058</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.529412</td>
+      <td>0.795181</td>
+      <td>0.583942</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### KNN
+
+
+    Average test accuracy for 1 nearest neighbors: 0.5476094276094277
+    Average test accuracy for 2 nearest neighbors: 0.5567003367003368
+    Average test accuracy for 3 nearest neighbors: 0.5659259259259259
+    Average test accuracy for 4 nearest neighbors: 0.5676767676767677
+    Average test accuracy for 5 nearest neighbors: 0.5767003367003367
+    Average test accuracy for 6 nearest neighbors: 0.5877104377104377
+    Average test accuracy for 7 nearest neighbors: 0.5768013468013468
+    Average test accuracy for 8 nearest neighbors: 0.5968686868686868
+    Average test accuracy for 9 nearest neighbors: 0.5932659932659933
+    Average test accuracy for 10 nearest neighbors: 0.6096969696969696
+    Average test accuracy for 11 nearest neighbors: 0.6078787878787879
+    Average test accuracy for 12 nearest neighbors: 0.6133670033670033
+    Average test accuracy for 13 nearest neighbors: 0.6023232323232324
+    Average test accuracy for 14 nearest neighbors: 0.6041750841750841
+    Average test accuracy for 15 nearest neighbors: 0.6041414141414141
+    Average test accuracy for 16 nearest neighbors: 0.605925925925926
+    Average test accuracy for 17 nearest neighbors: 0.6097306397306397
+    Average test accuracy for 18 nearest neighbors: 0.6005723905723906
+    Average test accuracy for 19 nearest neighbors: 0.6097306397306397
+    Average test accuracy for 20 nearest neighbors: 0.6170370370370369
+    Average test accuracy for 21 nearest neighbors: 0.6296632996632997
+    Average test accuracy for 22 nearest neighbors: 0.6278787878787878
+    Average test accuracy for 23 nearest neighbors: 0.6315488215488215
+    Average test accuracy for 24 nearest neighbors: 0.6334006734006733
+    Average test accuracy for 25 nearest neighbors: 0.6297979797979798
+    Average test accuracy for 26 nearest neighbors: 0.6297979797979798
+    Average test accuracy for 27 nearest neighbors: 0.6279461279461279
+    Average test accuracy for 28 nearest neighbors: 0.6316498316498316
+    Average test accuracy for 29 nearest neighbors: 0.6280134680134679
+    Average test accuracy for 30 nearest neighbors: 0.6260606060606059
+    Average test accuracy for 31 nearest neighbors: 0.6223905723905723
+    Average test accuracy for 32 nearest neighbors: 0.6297643097643097
+    Average test accuracy for 33 nearest neighbors: 0.6315488215488216
+    Average test accuracy for 34 nearest neighbors: 0.6334343434343435
+    Average test accuracy for 35 nearest neighbors: 0.6387878787878788
+    Average test accuracy for 36 nearest neighbors: 0.6444107744107743
+    Average test accuracy for 37 nearest neighbors: 0.6332659932659931
+    Average test accuracy for 38 nearest neighbors: 0.6314814814814814
+    Average test accuracy for 39 nearest neighbors: 0.6423905723905723
+    Average test accuracy for 40 nearest neighbors: 0.6333333333333334
+    Average test accuracy for 41 nearest neighbors: 0.6369023569023569
+    Average test accuracy for 42 nearest neighbors: 0.6296296296296297
+    Average test accuracy for 43 nearest neighbors: 0.6387542087542087
+    Average test accuracy for 44 nearest neighbors: 0.6278114478114479
+    Average test accuracy for 45 nearest neighbors: 0.6278114478114478
+    Average test accuracy for 46 nearest neighbors: 0.6370370370370371
+    Average test accuracy for 47 nearest neighbors: 0.6332996632996633
+    Average test accuracy for 48 nearest neighbors: 0.6333670033670034
+    Average test accuracy for 49 nearest neighbors: 0.637003367003367
+    Cross-validated nearest neighbors to use:  36
+    k-NN Training Score:  0.664233576642
+    k-NN Testing Score:  0.649446494465
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.954545</td>
+      <td>0.835106</td>
+      <td>0.597015</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.045455</td>
+      <td>0.164894</td>
+      <td>0.402985</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.568627</td>
+      <td>0.313253</td>
+      <td>0.291971</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.431373</td>
+      <td>0.686747</td>
+      <td>0.708029</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### Decison Tree
+
+
+    Average cross-validation test accuracy for depth of 2: 0.6770308590492077
+    Average cross-validation test accuracy for depth of 3: 0.6661551292743954
+    Average cross-validation test accuracy for depth of 4: 0.6587656380316931
+    Average cross-validation test accuracy for depth of 5: 0.6497080900750626
+    Average cross-validation test accuracy for depth of 6: 0.6223185988323603
+    Average cross-validation test accuracy for depth of 7: 0.6113928273561301
+    Average cross-validation test accuracy for depth of 8: 0.5913261050875729
+    Average cross-validation test accuracy for depth of 9: 0.6004837364470392
+    Average cross-validation test accuracy for depth of 10: 0.5931776480400334
+    Average cross-validation test accuracy for depth of 11: 0.6041701417848208
+    Average cross-validation test accuracy for depth of 12: 0.5895913261050876
+    Average cross-validation test accuracy for depth of 13: 0.5676563803169307
+    Average cross-validation test accuracy for depth of 14: 0.571326105087573
+    Cross-validated decision tree depth to use:  2
+    This decision tree has Training Score:  0.662408759124
+    This decision tree has Testing Score:  0.623616236162
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.890909</td>
+      <td>0.968085</td>
+      <td>0.462687</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.109091</td>
+      <td>0.031915</td>
+      <td>0.537313</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.352941</td>
+      <td>0.650602</td>
+      <td>0.218978</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.647059</td>
+      <td>0.349398</td>
+      <td>0.781022</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### Random Forest
+
+
+    Average cross-validation test accuracy for trees of 2: 0.5309924937447873
+    Average cross-validation test accuracy for trees of 4: 0.5821351125938283
+    Average cross-validation test accuracy for trees of 8: 0.625838198498749
+    Average cross-validation test accuracy for trees of 16: 0.6150625521267723
+    Average cross-validation test accuracy for trees of 32: 0.6332610508757297
+    Average cross-validation test accuracy for trees of 64: 0.6422852376980818
+    Average cross-validation test accuracy for trees of 128: 0.6441534612176814
+    Average cross-validation test accuracy for trees of 256: 0.6478065054211843
+    Cross-validated decision tree depth to use:  256
+    This decision tree has Training Score:  1.0
+    This decision tree has Testing Score:  0.619926199262
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.868182</td>
+      <td>0.882979</td>
+      <td>0.611940</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.131818</td>
+      <td>0.117021</td>
+      <td>0.388060</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.372549</td>
+      <td>0.421687</td>
+      <td>0.357664</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.627451</td>
+      <td>0.578313</td>
+      <td>0.642336</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### ADA
+
+
+    Average cross-validation test accuracy for trees of 2: 0.6570141784820684
+    Average cross-validation test accuracy for trees of 4: 0.6496914095079233
+    Average cross-validation test accuracy for trees of 8: 0.6096413678065055
+    Average cross-validation test accuracy for trees of 16: 0.5729941618015013
+    Average cross-validation test accuracy for trees of 32: 0.6095579649708089
+    Average cross-validation test accuracy for trees of 64: 0.6040033361134278
+    Average cross-validation test accuracy for trees of 128: 0.5602502085070893
+    Average cross-validation test accuracy for trees of 256: 0.600417014178482
+    Cross-validated decision tree depth to use:  2
+    This decision tree has Training Score:  0.644160583942
+    This decision tree has Testing Score:  0.59778597786
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.831818</td>
+      <td>0.968085</td>
+      <td>0.507463</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.168182</td>
+      <td>0.031915</td>
+      <td>0.492537</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.235294</td>
+      <td>0.650602</td>
+      <td>0.313869</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.764706</td>
+      <td>0.349398</td>
+      <td>0.686131</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### SVM
+
+
+    SVM Training Score:  0.704379562044
+    SVM Testing Score:  0.667896678967
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AD Score</th>
+      <th>CN Score</th>
+      <th>LMCI Score</th>
+    </tr>
+    <tr>
+      <th>Accuracies</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>True Negative</th>
+      <td>0.918182</td>
+      <td>0.877660</td>
+      <td>0.634328</td>
+    </tr>
+    <tr>
+      <th>False Positive</th>
+      <td>0.081818</td>
+      <td>0.122340</td>
+      <td>0.365672</td>
+    </tr>
+    <tr>
+      <th>False Negative</th>
+      <td>0.411765</td>
+      <td>0.349398</td>
+      <td>0.291971</td>
+    </tr>
+    <tr>
+      <th>True Positive</th>
+      <td>0.588235</td>
+      <td>0.650602</td>
+      <td>0.708029</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+    LogisticRegressionCV : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    0.0110701107011
+    LinearDiscriminantAnalysis : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    -0.0147601476015
+    QuadraticDiscriminantAnalysis : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    0.0184501845018
+    KNeighborsClassifier : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    -0.0221402214022
+    DecisionTreeClassifier : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    0.00369003690037
+    RandomForestClassifier : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    -0.0147601476015
+    AdaBoostClassifier : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    -0.0627306273063
+    SVC : difference in accuracy 
+    with chosen base predictors minus FULL set of predictors
+    0.0221402214022
+
+
+### Backward Selection 
+
+
+
+
+
+    "ovr_logistic = LogisticRegressionCV(fit_intercept=True, Cs=lambdas, penalty='l2', multi_class = 'ovr')\novr_result = ovr_logistic.fit(X_train, y_train)\n\nall_predictors = list(X_train.columns)\n\npredictors = [(all_predictors, ovr_result.score(X_test, y_test))]\n\nfor k in range(len(all_predictors), 1, -1):\n    best_k_predictors = predictors[-1][0]\n    scores = []\n    for predictor in best_k_predictors:\n        k_minus_1 = list(set(best_k_predictors) - set([predictor]))\n        X_train = X_train[k_minus_1].values\n        X_test = X_test[k_minus_1].values\n        \n        ovr_logistic = LogisticRegressionCV(fit_intercept=True, Cs=lambdas, penalty='l2', multi_class = 'ovr')\n        ovr_result = ovr_logistic.fit(X_train, y_train)\n\n        scores.append(ovr_result.score(X_test, y_test))\n    \n    best_k_minus_1 = list(set(best_k_predictors) - set([best_k_predictors[np.argmax(scores)]]))\n    predictors.append((best_k_minus_1, np.max(scores)))\nbest_predictor_set_b = sorted(predictors, key=lambda t: t[1])[-1]\n\nX_train = data_train[best_predictor_set_b[0]].values\nX_test = data_test[best_predictor_set_b[0]].values  \novr_logistic.fit(X_train, y_train)\n\nprint('best predictor set: {}\nscore: {}\ntest R^2: {}'.format(best_predictor_set_b[0], best_predictor_set_b[1], ovr_logistic.score(X_test, y_test)))\n"
+
+
+
+<br>We see that including all predictors compared to just previously selected baseline predictors leads to approximately comparable accuracy across all out-of-the-box models.</br>
+<br><b>Let's regularize the three best-performing models to get the baseline models and let's use only the limited set of predictors. </b>
+
+
+    Test accuracy achieved with ADA 0.549815498155
+    Test accuracy achieved with RF 0.568265682657
+    Test accuracy achieved with SVM 0.664206642066
+
+
+# Selecting Features
+
+
+
+
+
+    ['CSF',
+     'Cognitive tests',
+     'Cognitive tests (ADAS)',
+     'Demographics / Risk factors',
+     'Diagnosis',
+     'ID',
+     'MRI (Cross-sectional)',
+     'MRI (Longitudinal)',
+     'MRI measures',
+     'PET (AV45 AMYLOID)',
+     'PET (FDG)',
+     'PET measures',
+     'Time']
+
+
+
+
+
+    Test accuracy achieved with SVM 0.719557195572
+
+
+
+
