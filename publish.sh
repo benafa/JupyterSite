@@ -23,6 +23,24 @@ for f in "${arr[@]}"; do
    # Move to the Slides directory
    mv Notebooks/"$filename".slides.html  Slides/"$filename".html
 
+   # Convert the Notebook to Markdown
+   jupyter-nbconvert --to markdown Notebooks/"$filename".ipynb
+   # Move to the Markdown directory
+   mv Notebooks/"$filename".md  Markdown/"$filename".md
+
+   # Convert the Notebook to Latex
+   jupyter-nbconvert --to latex Notebooks/"$filename".ipynb
+   # Move to the Tex directory
+   mv Notebooks/"$filename".tex  Tex/"$filename".tex
+
+   # Convert the Notebook to Pdf
+   cp Notebooks/"$filename".ipynb src/"$filename".ipynb
+   cd src
+   jupyter-nbconvert --to pdf "$filename".ipynb
+   # Move to the html directory
+   mv "$filename".pdf  ../Pdfs/"$filename".pdf
+   rm "$filename".ipynb
+   cd ..
 done
 
 # Push the updates to gh-pages

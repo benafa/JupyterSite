@@ -88,12 +88,14 @@ This repository is also setup as a Julia package repository. To have users easil
 open up the Jupyter notebooks, they can use the commands from within Julia:
 
 
+
 ```julia
 Pkg.add("IJulia") # use once to install IJulia
 Pkg.clone("https://github.com/ChrisRackauckas/JupyterSite") # Change this to your Github repo
 using IJulia
 notebook(dir=Pkg.dir("JupyterSite")*"/Notebooks")
 ```
+
 
 This will open up the Jupyter notebook at the location of your notebooks
 
@@ -106,9 +108,11 @@ to include notebook files into Julia. Use this to add tests to the test/runtests
 file. To run the tests locally, use the commands
 
 
+
 ```julia
 Pkg.test("JupyterSite")
 ```
+
 
 # Example Output
 

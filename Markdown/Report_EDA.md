@@ -6,6 +6,7 @@
 ---
 
 
+
 ```python
 # ==================================
 # Import libraries
@@ -40,6 +41,8 @@ plt.rc('axes',labelsize=16)
 ```
 
 
+
+
 ```python
 colors = ["windows blue", "faded green", "greyish", "maroon", "dusty purple"]
 sns.set_palette(sns.xkcd_palette(colors))
@@ -50,6 +53,8 @@ c2=sns.color_palette()[2]
 c3=sns.color_palette()[3]
 c4=sns.color_palette()[4]
 ```
+
+
 
 
 ```python
@@ -70,8 +75,10 @@ print("Observations in baseline set: {}".format(len(data_base)))
 
 ```
 
+
     Observations in import file: 12741
     Observations in baseline set: 819
+
 
 
 
@@ -80,6 +87,8 @@ print("Observations in baseline set: {}".format(len(data_base)))
 # Response
 # ===================================================
 ```
+
+
 
 
 ```python
@@ -93,7 +102,9 @@ ax.set_title("Subjects by baseline diagnosis", fontsize=18);
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_5_0.png)
+
 
 
 
@@ -141,7 +152,9 @@ plt.savefig("images\Subjects_by_phase_histogram.png");
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_6_0.png)
+
 
 
 
@@ -168,7 +181,9 @@ plt.savefig("images\Visits_over_time.png");
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_7_0.png)
+
 
 
 
@@ -179,9 +194,11 @@ pd.value_counts(data_base.PTGENDER)
 
 
 
+
     Male      477
     Female    342
     Name: PTGENDER, dtype: int64
+
 
 
 
@@ -220,7 +237,9 @@ plt.savefig("images\Demographics_Histograms.png")
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_9_0.png)
+
 
 
 
@@ -244,7 +263,9 @@ plt.savefig("images\CognitiveTests_Boxplots.png")
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_10_0.png)
+
 
 
 
@@ -268,7 +289,9 @@ plt.savefig("images\CognitiveTests_Scatterplots.png");
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_11_0.png)
+
 
 
 
@@ -295,7 +318,9 @@ plt.savefig("images\PET_MRI_Boxplots.png")
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_12_0.png)
+
 
 
 
@@ -316,6 +341,8 @@ df.columns = ['Category', 'Count', 'Baseline visits', 'All']
 ```
 
 
+
+
 ```python
 df['Label'] = df.apply(lambda row: row['Category'].replace("(", "").replace(")", "") + " (" + str(row['Count']) + ")", axis=1)
 
@@ -327,7 +354,9 @@ plt.savefig("images\Predictor_Heatmap.png");
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_14_0.png)
+
 
 
 
@@ -343,7 +372,9 @@ plt.savefig("images\ASAS_Coll_Scatterplots.png")
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_15_0.png)
+
 
 
 
@@ -361,6 +392,8 @@ data_new = data_new.loc[(data_new['VISCODE'] == "bl") & (data_new['ORIGPROT'] ==
 ```
 
 
+
+
 ```python
 # Plot
 cols = [c for c in data_new.columns if c[:6] == "ADAS_Q"]
@@ -375,10 +408,13 @@ plt.savefig("images\ASAS_IndividualQs_Boxplots.png")
 ```
 
 
+
 ![png](Report_EDA_files/Report_EDA_17_0.png)
+
 
 
 
 ```python
 
 ```
+
